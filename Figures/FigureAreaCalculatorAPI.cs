@@ -4,13 +4,15 @@
     {
         Triangle,
         Circle,
+        Squad,
+        Rectangle,
     }
 
     public class FigureAreaCalculatorAPI
     {
-        public FigureAreaCalculatorAPI()
+        public FigureAreaCalculatorAPI(Type type)
         {
-            _areaCalculator = new TriangleAreaCalculator(); // default figure
+            ChangeFigureType(type);
         }
 
         public float CalculateArea(AreaParameter parameter)
@@ -27,6 +29,12 @@
                     break;
                 case Type.Circle:
                     _areaCalculator = new CircleAreaCalculator();
+                    break;
+                case Type.Squad:
+                    _areaCalculator = new SquadAreaCalculator();
+                    break;
+                case Type.Rectangle:
+                    _areaCalculator = new RectangleAreaCalculator();
                     break;
             }
         }

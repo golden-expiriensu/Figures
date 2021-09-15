@@ -6,7 +6,9 @@ namespace Figures
     {
         public float CalculateArea(AreaParameter parameter)
         {
-            parameter.TriangleSides.GetTriangleSides(out float sideA, out float sideB, out float sideC);
+            float sideA = parameter.TriangleSides.SideA,
+                  sideB = parameter.TriangleSides.SideB,
+                  sideC = parameter.TriangleSides.SideC;
             
             float semiPerimeter = (sideA + sideB + sideC) / 2f;
             

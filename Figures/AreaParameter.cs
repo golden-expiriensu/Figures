@@ -2,17 +2,28 @@
 {
     public class AreaParameter
     {
-        public AreaParameter(float sideA, float sideB, float sideC)
+        public AreaParameter(float value)
         {
-            TriangleSides = new TriangleSides(sideA, sideB, sideC);
+            SquadSides = new SquadSides(value);
+            Radius = value;
         }
 
-        public AreaParameter(float radius)
+        public AreaParameter(float valueA, float valueB)
         {
-            Radius = radius;
+            RectangleSides = new RectangleSides(valueA, valueB);
         }
+        
+        public AreaParameter(float valueA, float valueB, float valueC)
+        {
+            TriangleSides = new TriangleSides(valueA, valueB, valueC);
+        }
+
+        public SquadSides SquadSides { get; private set; }
+
+        public RectangleSides RectangleSides { get; private set; }
 
         public TriangleSides TriangleSides { get; private set; }
+
         public float Radius { get; private set; }
     }
 
@@ -20,18 +31,29 @@
     {
         public TriangleSides(float sideA, float sideB, float sideC)
         {
-            _sideA = sideA;
-            _sideB = sideB;
-            _sideC = sideC;
+            SideA = sideA;
+            SideB = sideB;
+            SideC = sideC;
         }
+        public readonly float SideA, SideB, SideC;
+    }
 
-        public void GetTriangleSides(out float sideA, out float sideB, out float sideC)
+    public struct SquadSides
+    {
+        public SquadSides(float sideA)
         {
-            sideA = _sideA;
-            sideB = _sideB;
-            sideC = _sideC;
+            SideA = sideA;
         }
+        public readonly float SideA;
+    }
 
-        float _sideA, _sideB, _sideC;
+    public struct RectangleSides
+    {
+        public RectangleSides(float sideA, float sideB)
+        {
+            SideA = sideA;
+            SideB = sideB;
+        }
+        public readonly float SideA, SideB;
     }
 }
