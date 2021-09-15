@@ -20,6 +20,12 @@
             return _areaCalculator.CalculateArea(parameter);
         }
 
+        public float CalculateArea(AreaParameter parameter, Type type)
+        {
+            ChangeFigureType(type);
+            return _areaCalculator.CalculateArea(parameter);
+        }
+
         public void ChangeFigureType(Type type)
         {
             switch (type)
